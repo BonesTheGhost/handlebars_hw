@@ -3,6 +3,10 @@ let connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'titanus2242',
-    database: ''
+    database: 'burgers_db'
 });
 
+
+connection.connect();
+
+module.exports = connection;
