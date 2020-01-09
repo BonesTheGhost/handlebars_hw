@@ -9,6 +9,14 @@ const orm = {
             if (err) cb(err, null);
             cb(null,data);
         });
+    },
+
+    insertOne: function(burgerName, cb) {
+        const sqlQuery = `INSERT INTO burgers_table(burger_name) VALUES('${burgerName}')`;
+        connection.query(sqlQuery, function(err, data){
+            if(err) cb(err, null);
+            cb(null, data);
+        });
     }
 };
 

@@ -1,1 +1,37 @@
-<p>Hello World! I am index.handlebars!!</p>
+<h1>Hello World! I am index.handlebars!!</h1>
+
+{{!--
+{{#each burgers}}
+
+<p>{{id}}</p>
+<p>{{burger_name}}</p>
+{{is_favorite}}
+
+{{/each}}
+--}}
+
+<div class="container content">
+    <h1>Burger App</h1>
+
+    {{!--Form for adding the burger--}}
+    <form>
+        <div>
+            <input type="text" required placeholder="Add a Burger!" class="form-control" name="burger_name">
+        </div>
+
+        <button type="submit" class="btn btn-default">Add Burger</button>
+    </form>
+
+    <div class="content-burger">
+        {{#each burgers}}
+            <div class="content-burger__list" id={{id}}>
+                <img src="../../images/burgerImage.jpg" alt="A picture of a burger">
+                <p>{{burger_name}}</p>
+                <button class="btn btn-default favorites" data-id="{{id}}" data-state="{{is_favorite}}">
+                    {{#if is_favorite}} unfavorite {{else}} Add To Favorite {{/if}}
+                </button>
+            </div>
+        {{/each}}
+    </div>
+
+</div>

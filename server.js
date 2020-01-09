@@ -8,6 +8,8 @@ const routes = require("./routes/handlers.js");
 const PORT = process.env.PORT || 8088;
 const app = express();
 
+//This first app.use is to make sure our css works.
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(methodOverride("_method"));
