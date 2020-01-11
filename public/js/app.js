@@ -14,7 +14,7 @@ const burgerTemplate = (burgerName, id, is_favorite) => {
 
     const name = $('<p>');
 
-    const button = $('<button').attr({
+    const button = $('<button>').attr({
         'data-id': id,
         class: 'btn btn-btn-default favorites',
         'data-state': is_favorite
@@ -31,7 +31,8 @@ const burgerTemplate = (burgerName, id, is_favorite) => {
 };
 
 const displayNewBurger = (burger) => {
-    const name = burger.burgerName;
+    console.log(burger);
+    const name = burger.burger_name;
     const id = burger.id;
     const is_favorite = burger.is_favorite;
 
@@ -42,6 +43,7 @@ const displayNewBurger = (burger) => {
 };
 
 const addBurgerFail = (response) => {
+    console.log(response);
     alert("Burger Failed")
 };
 
@@ -57,7 +59,8 @@ $('button[type="submit"]').on('click', function (event) {
         data: {
             burger_name: burgerName
         }
-    })
-        .then(displayNewBurger)
-        .catch(addBurgerFail);
+       })
+       .then(displayNewBurger)
+        .catch(
+            addBurgerFail);
 });
